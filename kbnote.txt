@@ -130,6 +130,9 @@ c:80
 "(Scheme function)"
 c:81
 
+:0
+"(Scheme function)"
+c:90
 
 :+
 "(Scheme function)"
