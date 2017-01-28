@@ -1,0 +1,141 @@
+numlock on
+
+
+1:
+"(Scheme function)"
+    m:0x10 + c:87
+    Mod2 + KP_End
+
+
+2:
+"(Scheme function)"
+    m:0x10 + c:88
+    Mod2 + KP_Down
+
+
+8:
+"(Scheme function)"
+    m:0x10 + c:80
+    Mod2 + KP_Up
+
+
+
+inviodestro:
+"(Scheme function)"
+    m:0x10 + c:104
+    Mod2 + KP_Enter
+
++destro:
+"(Scheme function)"
+    m:0x10 + c:86
+    Mod2 + KP_Add
+
+
+-destro
+"(Scheme function)"
+    m:0x10 + c:82
+    Mod2 + KP_Subtract
+
+
+
+
+
+
+
+
+
+
+
+
+numlock off
+
+
+1:
+"(Scheme function)"
+    m:0x0 + c:87
+    KP_End
+
+
+2:
+"(Scheme function)"
+    m:0x0 + c:88
+    KP_Down
+
+
+8:
+"(Scheme function)"
+    m:0x0 + c:80
+    KP_Up
+
+
+
+inviodestro:
+"(Scheme function)"
+    m:0x0 + c:104
+    KP_Enter
+
++destro:
+"(Scheme function)"
+    m:0x0 + c:86
+    KP_Add
+
+
+-destro
+"(Scheme function)"
+    m:0x0 + c:82
+    KP_Subtract
+
+
+
+
+
+# both
+
+
+:1
+"(Scheme function)"
+c:87
+
+:2
+"(Scheme function)"
+c:88
+
+:3
+"(Scheme function)"
+c:89
+
+:4
+"(Scheme function)"
+c:83
+
+:5
+"(Scheme function)"
+c:84
+
+:6
+"(Scheme function)"
+c:85
+
+:7
+"(Scheme function)"
+c:79
+
+
+:8
+"(Scheme function)"
+c:80
+
+
+:9
+"(Scheme function)"
+c:81
+
+
+:+
+"(Scheme function)"
+c:86
+
+
+:-
+"(Scheme function)"
+c:82

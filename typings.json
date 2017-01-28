@@ -1,0 +1,14 @@
+{
+  "globalDevDependencies": {
+    "mocha": "registry:dt/mocha#2.2.5+20170118061455",
+    "node": "registry:dt/node#7.0.0+20170124134802"
+  },
+  "dependencies": {
+    "bluebird": "registry:dt/bluebird#3.0.0+20161229155504",
+    "path-exists": "registry:dt/path-exists#1.0.0+20160428043022",
+    "superagent": "registry:dt/superagent#2.0.0+20161124104740"
+  },
+  "devDependencies": {
+    "express": "registry:dt/express#4.0.0+20170118060322"
+  }
+}
