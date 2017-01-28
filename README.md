@@ -1,6 +1,6 @@
 # rest-kb
 
-- require xbindkeys (on ubuntu)
+- depends on xbindkeys (ubuntu/debian)
 
 for es5
 
