@@ -2,7 +2,18 @@
 
 - require xbindkeys (on ubuntu)
 
--usage:
-var mapkeys=require("rest-kb").kbMap
+for es5
 
-mapkeys([key maps],conf)
+var kbMap=require("rest-kb").kbMap
+
+
+
+for typescript
+
+import { kbMap } from "../index"
+
+
+kbMap([key maps],conf) 
+
+
+
