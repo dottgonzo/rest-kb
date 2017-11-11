@@ -60,7 +60,7 @@ export function kbMap(maps: IMap[], conf?: { requestradix?: string }): Promise<t
 
         }
 
-        setTimeout(()=>{
+        setTimeout(()=>{ // maybe unnecessary
             console.log(conffile)
             writeFile(conffilepath, conffile, (err) => {
     
