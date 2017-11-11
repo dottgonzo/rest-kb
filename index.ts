@@ -60,33 +60,30 @@ export function kbMap(maps: IMap[], conf?: { requestradix?: string }): Promise<t
 
         }
 
-        setTimeout(()=>{ // maybe unnecessary
-            console.log(conffile)
-            writeFile(conffilepath, conffile, (err) => {
-    
-                if (err) {
-                    reject(err)
-                } else {
-    
-    
-                    const xbindings_cmd = "xbindkeys"
-    
-                    const xbindings_options = ["-n", "-f", conffilepath]
-    
-    
-    
-                    spawn(xbindings_cmd, xbindings_options, { stdio: "ignore" })
-    
-    
-    
-                    resolve(true)
-                }
-    
-    
-            })
-    
-    
-        },1000)
+        console.log(conffile)
+        writeFile(conffilepath, conffile, (err) => {
+
+            if (err) {
+                reject(err)
+            } else {
+
+
+                const xbindings_cmd = "xbindkeys"
+
+                const xbindings_options = ["-n", "-f", conffilepath]
+
+
+
+                spawn(xbindings_cmd, xbindings_options, { detached: true, stdio: "ignore" })
+
+
+
+                resolve(true)
+            }
+
+
+        })
+
 
 
 
