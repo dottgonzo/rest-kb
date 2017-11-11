@@ -30,7 +30,7 @@ function reloadxb(){
     
     
     
-                    const xb = spawn(xbindings_cmd, xbindings_options, { detached: true })
+                    const xb = spawn(xbindings_cmd, xbindings_options, { detached: true, env: {DISPLAY:':0'} })
                     xb.stdout.on('data', function (data) {
                         console.log("xb data0", data)
                         

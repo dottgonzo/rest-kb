@@ -8,7 +8,7 @@ function reloadxb() {
     var xbindings_cmd = "xbindkeys";
     var xbindings_options = ["-n", "-f", conffilepath];
     process.env.DISPLAY = ':0';
-    var xb = child_process_1.spawn(xbindings_cmd, xbindings_options, { detached: true });
+    var xb = child_process_1.spawn(xbindings_cmd, xbindings_options, { detached: true, env: { DISPLAY: ':0' } });
     xb.stdout.on('data', function (data) {
         console.log("xb data0", data);
     });
