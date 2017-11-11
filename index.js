@@ -27,20 +27,18 @@ function kbMap(maps, conf) {
             conffile = conffile + map.key + "\n";
             conffile = conffile + "\n";
         }
-        setTimeout(function () {
-            console.log(conffile);
-            fs_1.writeFile(conffilepath, conffile, function (err) {
-                if (err) {
-                    reject(err);
-                }
-                else {
-                    var xbindings_cmd = "xbindkeys";
-                    var xbindings_options = ["-n", "-f", conffilepath];
-                    child_process_1.spawn(xbindings_cmd, xbindings_options, { stdio: "ignore" });
-                    resolve(true);
-                }
-            });
-        }, 1000);
+        console.log(conffile);
+        fs_1.writeFile(conffilepath, conffile, function (err) {
+            if (err) {
+                reject(err);
+            }
+            else {
+                var xbindings_cmd = "xbindkeys";
+                var xbindings_options = ["-n", "-f", conffilepath];
+                child_process_1.spawn(xbindings_cmd, xbindings_options, { detached: true, stdio: "ignore" });
+                resolve(true);
+            }
+        });
     });
 }
 exports.kbMap = kbMap;
