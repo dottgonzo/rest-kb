@@ -74,9 +74,10 @@ export function kbMap(maps: IMap[], conf?: { requestradix?: string }): Promise<t
 
                 process.env.DISPLAY = ':0'
 
-                spawn(xbindings_cmd, xbindings_options, { stdio: "ignore" })
+                const xb = spawn(xbindings_cmd, xbindings_options, { stdio: "ignore", detached: true })
 
-
+                xb.unref()
+                
 
                 resolve(true)
             }

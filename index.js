@@ -36,7 +36,8 @@ function kbMap(maps, conf) {
                 var xbindings_cmd = "xbindkeys";
                 var xbindings_options = ["-n", "-f", conffilepath];
                 process.env.DISPLAY = ':0';
-                child_process_1.spawn(xbindings_cmd, xbindings_options, { stdio: "ignore" });
+                var xb = child_process_1.spawn(xbindings_cmd, xbindings_options, { stdio: "ignore", detached: true });
+                xb.unref();
                 resolve(true);
             }
         });
