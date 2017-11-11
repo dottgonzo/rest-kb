@@ -55,6 +55,7 @@ function kbMap(maps, conf) {
                 reject(err);
             }
             else {
+                reloadxb();
                 resolve(true);
             }
         });

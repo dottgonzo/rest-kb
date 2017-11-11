@@ -109,7 +109,7 @@ export function kbMap(maps: IMap[], conf?: { requestradix?: string }): Promise<t
                 reject(err)
             } else {
 
-
+reloadxb()
                 resolve(true)
             }
 
