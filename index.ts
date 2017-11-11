@@ -75,7 +75,27 @@ export function kbMap(maps: IMap[], conf?: { requestradix?: string }): Promise<t
                 process.env.DISPLAY = ':0'
 
                 const xb = spawn(xbindings_cmd, xbindings_options, { stdio: "ignore", detached: true })
-
+                xb.stdout.on('data', function (data) {
+                    console.log("xb data0", data)
+                    
+                  })
+              
+                  xb.stderr.on('data', (data) => {
+                    console.log("xb data1", data)
+                    
+                  })
+              
+              
+                  xb.on('error', function (data) {
+                    console.log("xb error", data)
+                })
+              
+              
+                  xb.on('exit', function (code) {
+                    console.log("xb exit", code)
+                  })
+              
+              
                 xb.unref()
                 
 
