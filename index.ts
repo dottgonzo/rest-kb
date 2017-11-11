@@ -17,6 +17,48 @@ interface IMap {
 
 const conffilepath = "/tmp/.xbindkb.conf"
 
+
+function reloadxb(){
+    
+
+    const xbindings_cmd = "xbindkeys"
+    
+                    const xbindings_options = ["-n", "-f", conffilepath]
+    
+                    process.env.DISPLAY = ':0'
+    
+    
+    
+    
+                    const xb = spawn(xbindings_cmd, xbindings_options, { detached: true })
+                    xb.stdout.on('data', function (data) {
+                        console.log("xb data0", data)
+                        
+                      })
+                  
+                      xb.stderr.on('data', (data) => {
+                        console.log("xb data1", data)
+                        
+                      })
+                  
+                  
+                      xb.on('error', function (data) {
+                        console.log("xb error", data)
+                    })
+                  
+                  
+                      xb.on('exit', function (code) {
+                          console.log('exited', code)
+                          setTimeout(()=>{
+                            reloadxb()                            
+                          },3000)
+                      })
+                  
+                  
+                    xb.unref()
+                    
+}
+
 export function kbMap(maps: IMap[], conf?: { requestradix?: string }): Promise<true> {
 
     return new Promise<true>((resolve, reject) => {
@@ -67,37 +109,6 @@ export function kbMap(maps: IMap[], conf?: { requestradix?: string }): Promise<t
                 reject(err)
             } else {
 
-
-                const xbindings_cmd = "xbindkeys"
-
-                const xbindings_options = ["-n", "-f", conffilepath]
-
-                process.env.DISPLAY = ':0'
-
-                const xb = spawn(xbindings_cmd, xbindings_options, { detached: true })
-                xb.stdout.on('data', function (data) {
-                    console.log("xb data0", data)
-                    
-                  })
-              
-                  xb.stderr.on('data', (data) => {
-                    console.log("xb data1", data)
-                    
-                  })
-              
-              
-                  xb.on('error', function (data) {
-                    console.log("xb error", data)
-                })
-              
-              
-                  xb.on('exit', function (code) {
-                    console.log("xb exit", code)
-                  })
-              
-              
-                xb.unref()
-                
 
                 resolve(true)
             }
