@@ -1,10 +1,11 @@
 {
   "name": "rest-kb",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "map rest api to hotkeys then press a key from the keyboard and run a request",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "build": "npx tsc"
   },
   "repository": {
     "type": "git",
@@ -22,7 +23,7 @@
   "homepage": "https://github.com/dottgonzo/rest-kb#readme",
   "devDependencies": {
     "chai": "^3.5.0",
-    "express": "^4.14.0",
+    "express": "^4.16.2",
     "gulp": "^3.9.1",
     "gulp-bump": "^2.6.1",
     "gulp-concat": "^2.6.1",

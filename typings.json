@@ -5,6 +5,7 @@
   },
   "dependencies": {
     "bluebird": "registry:dt/bluebird#3.0.0+20161229155504",
+    "express-serve-static-core": "registry:dt/express-serve-static-core#4.0.0+20170324160323",
     "path-exists": "registry:dt/path-exists#1.0.0+20160428043022",
     "superagent": "registry:dt/superagent#2.0.0+20161124104740"
   },
