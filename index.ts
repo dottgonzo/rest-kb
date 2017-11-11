@@ -53,9 +53,9 @@ export function kbMap(maps: IMap[], conf?: { requestradix?: string }): Promise<t
             }
 
 
-                conffile = conffile + map.key +"\n"
+            conffile = conffile + map.key + "\n"
 
-                conffile = conffile + "\n"
+            conffile = conffile + "\n"
 
 
         }
@@ -72,12 +72,13 @@ export function kbMap(maps: IMap[], conf?: { requestradix?: string }): Promise<t
 
                 const xbindings_options = ["-n", "-f", conffilepath]
 
+                process.env.DISPLAY = ':0'
+
+                spawn(xbindings_cmd, xbindings_options, { stdio: "ignore" })
 
 
-                const xk = spawn(xbindings_cmd, xbindings_options, { detached: true, stdio: ['ignore', "ignore", "ignore"] })
 
                 resolve(true)
-                
             }
 
 
