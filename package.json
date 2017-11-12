@@ -1,6 +1,6 @@
 {
   "name": "rest-kb",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "map rest api to hotkeys then press a key from the keyboard and run a request",
   "main": "index.js",
   "scripts": {

@@ -36,12 +36,6 @@ function kbMap(maps, conf) {
                 var xbindings_cmd = "xbindkeys";
                 var xbindings_options = ["-X", ":0", "-n", "-f", conffilepath];
                 var xb = child_process_1.spawn(xbindings_cmd, xbindings_options, { detached: true });
-                xb.stdout.on('data', function (data) {
-                    console.log("xb data0", data);
-                });
-                xb.stderr.on('data', function (data) {
-                    console.log("xb data1", data);
-                });
                 xb.on('error', function (data) {
                     console.log("xb error", data);
                 });
