@@ -70,9 +70,8 @@ export function kbMap(maps: IMap[], conf?: { requestradix?: string }): Promise<t
 
                 const xbindings_cmd = "xbindkeys"
 
-                const xbindings_options = ["-n", "-f", conffilepath]
+                const xbindings_options = ["-X", ":0", "-n", "-f", conffilepath]
 
-                process.env.DISPLAY = ':0'
 
                 
                 const xb = spawn(xbindings_cmd, xbindings_options, { detached: true })
