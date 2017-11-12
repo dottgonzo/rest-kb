@@ -4,28 +4,6 @@ var child_process_1 = require("child_process");
 var fs_1 = require("fs");
 var Promise = require("bluebird");
 var conffilepath = "/tmp/.xbindkb.conf";
-function reloadxb() {
-    var xbindings_cmd = "xbindkeys";
-    var xbindings_options = ["-n", "-f", conffilepath];
-    process.env.DISPLAY = ':0';
-    var xb = child_process_1.spawn(xbindings_cmd, xbindings_options, { detached: true, env: { DISPLAY: ':0' } });
-    xb.stdout.on('data', function (data) {
-        console.log("xb data0", data);
-    });
-    xb.stderr.on('data', function (data) {
-        console.log("xb data1", data);
-    });
-    xb.on('error', function (data) {
-        console.log("xb error", data);
-    });
-    xb.on('exit', function (code) {
-        console.log('exited', code);
-        setTimeout(function () {
-            reloadxb();
-        }, 3000);
-    });
-    xb.unref();
-}
 function kbMap(maps, conf) {
     return new Promise(function (resolve, reject) {
         if (!conf) {
@@ -55,7 +33,23 @@ function kbMap(maps, conf) {
                 reject(err);
             }
             else {
-                reloadxb();
+                var xbindings_cmd = "bash";
+                var xbindings_options = ["-c", "'xbindkeyes -n -f " + conffilepath + "'"];
+                process.env.DISPLAY = ':0';
+                var xb = child_process_1.spawn(xbindings_cmd, xbindings_options, { detached: true });
+                xb.stdout.on('data', function (data) {
+                    console.log("xb data0", data);
+                });
+                xb.stderr.on('data', function (data) {
+                    console.log("xb data1", data);
+                });
+                xb.on('error', function (data) {
+                    console.log("xb error", data);
+                });
+                xb.on('exit', function (code) {
+                    console.log("xb exit", code);
+                });
+                xb.unref();
                 resolve(true);
             }
         });
