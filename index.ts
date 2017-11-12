@@ -74,7 +74,7 @@ export function kbMap(maps: IMap[], conf?: { requestradix?: string }): Promise<t
 
 
                 
-                const xb = spawn(xbindings_cmd, xbindings_options, { detached: true })
+                const xb = spawn(xbindings_cmd, xbindings_options, { detached: true, stdio: "ignore" })
 
               
                   xb.on('error', function (data) {
