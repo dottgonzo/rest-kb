@@ -33,8 +33,8 @@ function kbMap(maps, conf) {
                 reject(err);
             }
             else {
-                var xbindings_cmd = "bash";
-                var xbindings_options = ["-c", "'xbindkeyes -n -f " + conffilepath + "'"];
+                var xbindings_cmd = "xbindkeys";
+                var xbindings_options = ["-n", "-f", conffilepath];
                 process.env.DISPLAY = ':0';
                 var xb = child_process_1.spawn(xbindings_cmd, xbindings_options, { detached: true });
                 xb.stdout.on('data', function (data) {

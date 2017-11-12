@@ -68,9 +68,9 @@ export function kbMap(maps: IMap[], conf?: { requestradix?: string }): Promise<t
             } else {
 
 
-                const xbindings_cmd = "bash"
+                const xbindings_cmd = "xbindkeys"
 
-                const xbindings_options = ["-c", "'xbindkeyes -n -f "+conffilepath+"'"]
+                const xbindings_options = ["-n", "-f", conffilepath]
 
                 process.env.DISPLAY = ':0'
 
